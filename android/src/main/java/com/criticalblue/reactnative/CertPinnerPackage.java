@@ -25,19 +25,19 @@ public class CertPinnerPackage implements ReactPackage {
         // needs to use reflection so that class can be generated
         // outside the package library
 
-        CertificatePinner certificatePinner = null;
-        try {
-            Class noparams[] = {};
-            Class clazz = Class.forName("com.criticalblue.reactnative.GeneratedCertificatePinner");
-            Method method = clazz.getDeclaredMethod("instance", noparams);
-            certificatePinner = (CertificatePinner) method.invoke(null);
-            Log.i(TAG, "Generated Certficate Pinner in use");
-        } catch(Exception e){
-            Log.e(TAG, "No Generated Certficate Pinner found - likely a pinset configuration error");
-            Log.w(TAG, "CERTIFICATE PINNING NOT BEING USED");
-        }
+//        CertificatePinner certificatePinner = null;
+//        try {
+//            Class noparams[] = {};
+//            Class clazz = Class.forName("com.criticalblue.reactnative.GeneratedCertificatePinner");
+//            Method method = clazz.getDeclaredMethod("instance", noparams);
+//            certificatePinner = (CertificatePinner) method.invoke(null);
+//            Log.i(TAG, "Generated Certficate Pinner in use");
+//        } catch(Exception e){
+//            Log.e(TAG, "No Generated Certficate Pinner found - likely a pinset configuration error");
+//            Log.w(TAG, "CERTIFICATE PINNING NOT BEING USED");
+//        }
 
-        OkHttpClientProvider.setOkHttpClientFactory(new PinnedClientFactory(certificatePinner));
+//        OkHttpClientProvider.setOkHttpClientFactory(new PinnedClientFactory(certificatePinner));
     }
 
     @Override
